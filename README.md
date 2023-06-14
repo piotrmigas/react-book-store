@@ -1,5 +1,3 @@
-Book store React + NodeJS
-
 # npm
 
 - RTK Query
