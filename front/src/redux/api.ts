@@ -11,7 +11,7 @@ export const api = createApi({
     getBook: builder.query<ResBook, number>({
       query: (bookId) => `/book/${bookId}`,
     }),
-    createOrder: builder.mutation<Order, OrderBody>({
+    createOrder: builder.mutation<Order, Partial<Order>>({
       query: (body) => ({
         url: '/order',
         method: 'POST',
