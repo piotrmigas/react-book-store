@@ -85,7 +85,9 @@ export default function Cart() {
                     <TableCell align='center'>
                       <div style={{ display: 'flex', alignItems: 'center' }}>
                         <Add sx={{ fontSize: 14, cursor: 'pointer' }} onClick={() => dispatch(addToCart(book))} />
-                        <div style={{ margin: '0 5px' }}>{book.quantity}</div>
+                        <div style={{ margin: '0 5px' }} data-testid='amount'>
+                          {book.quantity}
+                        </div>
                         <Remove
                           sx={{ fontSize: 14, cursor: 'pointer' }}
                           onClick={() => dispatch(decreaseCart(book.id))}
