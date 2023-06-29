@@ -1,6 +1,6 @@
 describe('cart', () => {
   it('add product to the cart', () => {
-    cy.visit('https://react-book-store-front.vercel.app');
+    cy.visit('/');
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.contains('.MuiBadge-badge', 1);
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
@@ -8,7 +8,7 @@ describe('cart', () => {
   });
 
   it('remove product from cart', () => {
-    cy.visit('https://react-book-store-front.vercel.app');
+    cy.visit('/');
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
     cy.get('[data-testid="RemoveIcon"]').click();
@@ -16,7 +16,7 @@ describe('cart', () => {
   });
 
   it('increase quantity', () => {
-    cy.visit('https://react-book-store-front.vercel.app');
+    cy.visit('/');
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
     cy.get('[data-testid="AddIcon"]').click();
@@ -24,7 +24,7 @@ describe('cart', () => {
   });
 
   it('decrease quantity', () => {
-    cy.visit('https://react-book-store-front.vercel.app');
+    cy.visit('/');
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
@@ -33,7 +33,7 @@ describe('cart', () => {
   });
 
   it('proceed to summary', () => {
-    cy.visit('https://react-book-store-front.vercel.app');
+    cy.visit('/');
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
     cy.contains('button', 'Dalej').click();
@@ -44,7 +44,7 @@ describe('cart', () => {
 
 describe('summary', () => {
   it('sends order', () => {
-    cy.visit('https://react-book-store-front.vercel.app');
+    cy.visit('/');
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
     cy.contains('button', 'Dalej').click();
