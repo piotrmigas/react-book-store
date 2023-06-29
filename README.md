@@ -6,6 +6,7 @@
 - MUI 5
 - Express.js
 - Swagger-UI-Express
+- Cypress
 
 ## Dokumentacja API
 
