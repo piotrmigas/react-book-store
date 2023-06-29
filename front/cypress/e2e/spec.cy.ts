@@ -1,6 +1,6 @@
 describe('cart', () => {
   it('add product to the cart', () => {
-    cy.visit('http://localhost:5173');
+    cy.visit('https://react-book-store-front.vercel.app');
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.contains('.MuiBadge-badge', 1);
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
@@ -8,7 +8,7 @@ describe('cart', () => {
   });
 
   it('remove product from cart', () => {
-    cy.visit('http://localhost:5173');
+    cy.visit('https://react-book-store-front.vercel.app');
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
     cy.get('[data-testid="RemoveIcon"]').click();
@@ -16,7 +16,7 @@ describe('cart', () => {
   });
 
   it('increase quantity', () => {
-    cy.visit('http://localhost:5173');
+    cy.visit('https://react-book-store-front.vercel.app');
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
     cy.get('[data-testid="AddIcon"]').click();
@@ -24,7 +24,7 @@ describe('cart', () => {
   });
 
   it('decrease quantity', () => {
-    cy.visit('http://localhost:5173');
+    cy.visit('https://react-book-store-front.vercel.app');
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
@@ -33,11 +33,28 @@ describe('cart', () => {
   });
 
   it('proceed to summary', () => {
-    cy.visit('http://localhost:5173');
+    cy.visit('https://react-book-store-front.vercel.app');
     cy.contains('button', 'Dodaj do koszyka').click();
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
     cy.contains('button', 'Dalej').click();
     cy.contains('p', 'Podsumowanie');
     cy.get('form');
+  });
+});
+
+describe('summary', () => {
+  it('sends order', () => {
+    cy.visit('https://react-book-store-front.vercel.app');
+    cy.contains('button', 'Dodaj do koszyka').click();
+    cy.get('[data-testid="ShoppingBasketIcon"]').click();
+    cy.contains('button', 'Dalej').click();
+    cy.get('input[name="first_name"]').type('John');
+    cy.get('input[name="last_name"]').type('Doe');
+    cy.get('input[name="city"]').type('Krakow');
+    cy.get('input[name="zip_code"]').type('30-560');
+    cy.contains('button', 'Zamawiam i płacę').click();
+    cy.on('window:alert', (txt) => {
+      expect(txt).to.contains('John Doe');
+    });
   });
 });
