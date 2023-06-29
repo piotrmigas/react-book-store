@@ -26,7 +26,7 @@ export default function Checkout() {
 
   useEffect(() => {
     if (result.data) alert(JSON.stringify(result.data, null, 2));
-  }, [result]);
+  }, [result.data]);
 
   return (
     <>

@@ -49,12 +49,12 @@ describe('summary', () => {
     cy.get('[data-testid="ShoppingBasketIcon"]').click();
     cy.contains('button', 'Dalej').click();
     cy.get('input[name="first_name"]').type('John');
-    cy.get('input[name="last_name"]').type('Doe');
-    cy.get('input[name="city"]').type('Krakow');
+    cy.get('input[name="last_name"]').type('McGee');
+    cy.get('input[name="city"]').type('Kraków');
     cy.get('input[name="zip_code"]').type('30-560');
     cy.contains('button', 'Zamawiam i płacę').click();
     cy.on('window:alert', (txt) => {
-      expect(txt).to.contains('John Doe');
+      expect(txt).to.contains('McGee');
     });
   });
 });
