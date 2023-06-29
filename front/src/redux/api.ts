@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const api = createApi({
   tagTypes: ['Books', 'SearchResults', 'Orders'],
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://react-book-store-nodejs.vercel.app/api' }),
+  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_URL }),
   endpoints: (builder) => ({
     getBooks: builder.query<ResBooks, number | void>({
       query: (page) => `/book?page=${page}`,
